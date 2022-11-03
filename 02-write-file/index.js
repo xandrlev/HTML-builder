@@ -7,7 +7,7 @@ stdout.write('Enter your text:');
 stdin.on('data', data => {
   const myData = data.toString().trim();
   if (myData === 'exit'){
-    process.exit(0);
+    process.exit();
   } else {
     writeData.write(data);
   }

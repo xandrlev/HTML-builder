@@ -7,7 +7,7 @@ fs.readdir(dir, { withFileTypes: true }, (err, files) => {
   files.forEach((file) => {
     if (file.isFile()) {
       const fileName = file.name.replace(/\.[^/.]+$/, "");
-      const fileExtension = path.extname(path.join(dir, file.name)).slice(1);
+      const fileExtension = path.extname(file.name).slice(1);
 
       const fileSize = new Promise((resolve) => {
         fs.stat(path.join(dir, file.name), (err, stat) => {

@@ -6,13 +6,13 @@ const currentDir = path.join(__dirname, "files");
 (async function copyDirectory() {
   try {
     await fsPromise.access(`${currentDir}-copy`);
-    console.log("exist");
+    // console.log("exist");
 
     await delFiles()
     await mkDir();
     await copyFiles();
   } catch {
-    console.log("does not exist");
+    // console.log("does not exist");
     await mkDir();
     await copyFiles();
   }
@@ -50,11 +50,11 @@ async function delFiles() {
 
     files.forEach((file) => {
       fsPromise.unlink(path.join(`${currentDir}-copy`, file.name));
-      console.log("delFiles");
+      // console.log("delFiles");
     });
 
     await fsPromise.rmdir(`${currentDir}-copy`);
-    console.log("delFolder");
+    // console.log("delFolder");
   } catch (err) {
     console.err(err);
   }
